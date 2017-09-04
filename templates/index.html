@@ -7,7 +7,7 @@
     <meta name="author" content="@gotoariel">
     <!-- <link rel="icon" href="favicon.ico"> -->
 
-		<title>Wilkommen, bienvenue, and welcome to Heroku!</title>
+		<title>Stocks cash moneys$$$</title>
 
     <!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -23,7 +23,26 @@
             <li><a target="_blank" href="http://jinja.pocoo.org/docs/2.9/">Jinja2</a></li>
             <li><a target="_blank" href="http://getbootstrap.com/">Bootstrap</a></li>
           </ul>
+		  <h2>Now for the real stuff</h2>
+		  <form action"" method="post" name="ticker_symbol">
+			  {{ form.hidden_tag() }}
+			  <p>
+				  Please enter the ticker symbol for a company:
+				  {{ form.ticker_symbol(size=10) }}<br>
+				  {% for error in form.ticker_symbol.errors %}
+				  	<span style="color: red;">[{{ error }}]<span>
+				  {% endfor %}
+			  </p>
+			  <p><input type="submit" value="SeeData"></p>
         </div>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<ul>
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
       </div>
 		</div>
     <!-- Bootstrap core JavaScript
