@@ -11,6 +11,15 @@
 
     <!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Bokeh -->
+	<linK href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css"
+	rel="stylesheet" type="text/css">
+	<link href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.7.min.css"
+	rel="stylesheet" type="text/css">
+
+	<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.js"></script>
+	<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.7.min.js"></script>
+
   </head>
 	<body>
 		<div class="container">
@@ -43,6 +52,11 @@
 				{% endfor %}
 			{% endif %}
 		{% endwith %}
+		{% if script %}
+			<p> Here we are! </p>
+			{{ script|safe }}
+			{{ div|safe }}
+		{% endif %}
       </div>
 		</div>
     <!-- Bootstrap core JavaScript
