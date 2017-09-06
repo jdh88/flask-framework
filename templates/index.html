@@ -27,6 +27,11 @@
           {% endfor %}
       {% endif %}
   {% endwith %}
+  
+  {% if bad_result %}
+    <span style="color: red;">[{{ bad_result }}]<span>
+  {% endif %}
+
   {% if script %}
       {{ script|safe }}
       {{ div|safe }}

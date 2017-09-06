@@ -3,10 +3,22 @@ Helper functions that get stock data and plot it, returning html and javascript 
 """
 
 import requests
+import calendar
+import datetime as dt
 import pandas as pd
 from bokeh import plotting as bk
 from bokeh.embed import components
 from bokeh.models import HoverTool
+
+def get_dates():
+    """
+    Returns the current date and one month ago
+    """
+    today = dt.date.today()
+    lastmonth = today - dt.timedelta(days=calendar.monthrange(today.year, today.month)[1])
+
+    return [str(lastmonth), str(today)]
+
 
 def get_stock_data(company, start_date_inc, stop_date_inc):
     """
@@ -39,10 +51,12 @@ def get_stock_data(company, start_date_inc, stop_date_inc):
 
     # convert to a pandas dataframe
     df = pd.DataFrame(r.json()['datatable']['data'])
-    df.columns = ['date', 'price']
-    df['date'] = pd.to_datetime(df['date'])
+    if not df.empty:
+        df.columns = ['date', 'price']
+        df['date'] = pd.to_datetime(df['date'])
 
     return df
+
 
 def plot_stocks(df, ticker):
     """

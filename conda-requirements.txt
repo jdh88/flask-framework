@@ -7,3 +7,5 @@ jinja2
 pip
 simplejson
 requests
+calendar
+datetime
