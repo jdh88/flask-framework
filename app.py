@@ -7,7 +7,6 @@ from stocks import get_stock_data, plot_stocks
 app = Flask(__name__)
 app.config.from_object('config')
 
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = TickerSymbolForm()
