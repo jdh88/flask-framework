@@ -21,13 +21,14 @@
 
   {% with messages = get_flashed_messages() %}
       {% if messages %}
-          <ul>
+        <ul>
           {% for message in messages %}
               <li>{{ message }}</li>
           {% endfor %}
+        </ul>
       {% endif %}
   {% endwith %}
-  
+
   {% if bad_result %}
     <span style="color: red;">[{{ bad_result }}]<span>
   {% endif %}
