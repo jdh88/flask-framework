@@ -17,26 +17,27 @@
             {% endfor %}
         </p>
         <p><input type="submit" value="SeeData"></p>
-  </div>
 
-  {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-          {% for message in messages %}
-              <li>{{ message }}</li>
-          {% endfor %}
-        </ul>
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+              {% for message in messages %}
+                  <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+      {% endwith %}
+
+      {% if bad_result %}
+        <span style="color: red;">[{{ bad_result }}]<span>
       {% endif %}
-  {% endwith %}
 
-  {% if bad_result %}
-    <span style="color: red;">[{{ bad_result }}]<span>
-  {% endif %}
+      {% if script %}
+          {{ script|safe }}
+          {{ div|safe }}
+      {% endif %}
+    </div>
 
-  {% if script %}
-      {{ script|safe }}
-      {{ div|safe }}
-  {% endif %}
 </div>
 
 
