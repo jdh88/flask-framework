@@ -16,7 +16,7 @@ def index():
     if form.validate_on_submit():
         company = form.ticker_symbol.data
 
-        flash('You entered: %s' % (company))
+        #flash('You entered: %s' % (company))
 
         dates = get_dates()
 
